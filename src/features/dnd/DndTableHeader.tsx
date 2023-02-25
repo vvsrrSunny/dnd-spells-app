@@ -1,6 +1,6 @@
 import TableHeaderCell from "./TableHeaderCell";
 
-const TableLayoutHeader = () => {
+const DndTableHeader = () => {
     return (
         <tr>
             <TableHeaderCell>Index</TableHeaderCell>
@@ -12,4 +12,4 @@ const TableLayoutHeader = () => {
     );
 }
 
-export default TableLayoutHeader;
+export default DndTableHeader;

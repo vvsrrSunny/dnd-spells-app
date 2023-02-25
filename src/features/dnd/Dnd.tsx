@@ -1,10 +1,9 @@
 import TableLayout from "../../layouts/TableLayout";
-import TableLayoutHeader from "./TableLayoutHeader";
+import DndTableHeader from "./DndTableHeader";
 
 const Dnd = () => {
     return (<div>
-        <TableLayout header={<TableLayoutHeader/>}>
-        </TableLayout>
+        <TableLayout header={<DndTableHeader/>} body={<div>body</div>} />
     </div>);
 };
 
