@@ -1,4 +1,4 @@
-import TableHeaderCell from "../../components/TableHeaderCell";
+import TableHeaderCell from "./TableHeaderCell";
 
 const DndTableHeader = () => {
     return (

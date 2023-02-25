@@ -1,5 +1,5 @@
-import TableLayout from "../../layouts/TableLayout";
-import DndTableHeader from "./DndTableHeader";
+import TableLayout from "../../components/TableLayout";
+import DndTableHeader from "../../components/DndTableHeader";
 
 const Dnd = () => {
     return (<div>
