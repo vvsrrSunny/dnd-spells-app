@@ -6,7 +6,7 @@ import dndReducer, {
 describe('counter reducer', () => {
     const initialState: DndState = {
         count: 0,
-        result: [],
+        results: [],
     };
 
     it('should handle initial state', () => {
@@ -19,7 +19,7 @@ describe('counter reducer', () => {
     it('should handle increment', () => {
         const newResult = {
             count: 1,
-            result: [
+            results: [
                 {
                     index: 'new test index',
                     name: 'new test name',
@@ -29,6 +29,6 @@ describe('counter reducer', () => {
         }
         const actual = dndReducer(initialState, setState(newResult));
         // expect(actual.count).toEqual(1);
-        expect(actual.result[0].index).toEqual('new test index');
+        expect(actual.results[0].index).toEqual('new test index');
     });
 });

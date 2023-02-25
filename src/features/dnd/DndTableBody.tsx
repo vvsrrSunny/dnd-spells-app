@@ -1,4 +1,5 @@
-const DndTableBody = () => {
+
+const DndTableBody = (props: any) => {
     return (<>
     </>);
 }
