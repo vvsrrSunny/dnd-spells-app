@@ -10,22 +10,20 @@ import {
 import DndTableBody from "./DndTableBody";
 
 const Dnd = () => {
+    // run as component did mount. 
     useEffect(() => {
         getDndData();
     }, []);
+
     const dispatch = useAppDispatch();
 
     const getDndData = (): void => {
         console.log("component did mount is executing")
         axios.get<DndState>("https://www.dnd5eapi.co/api/spells").then((response: AxiosResponse<DndState>) => {
-            console.log(response);
-
             const dndState: DndState = response.data;
-            console.log(dndState.results[319]);
             dispatch(setState(dndState));
         });
     }
-
 
     return (<div>
         <TableLayout header={<DndTableHeader />} body={<DndTableBody people='people' />} />
