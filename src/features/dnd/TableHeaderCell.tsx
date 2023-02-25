@@ -2,10 +2,9 @@ import { ReactNode } from "react";
 
 interface Props {
     children?: ReactNode;
-    // any props that come into the component
 }
 
-const TableHeaderCell = ({ children, ...props }: Props) => {
+const TableHeaderCell = ({ children}: Props) => {
     return (
         <th
             scope="col"
