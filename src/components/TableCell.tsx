@@ -2,15 +2,25 @@
 import { ReactNode } from "react";
 
 interface Props {
-    children?: ReactNode;
+    children?: ReactNode,
+    paddingXAxis: string,
+    fontSize: string,
+    textColor: string,
 }
 
-const TableCell = ({ children }: Props) => {
+const TableCell = ({ children, ...props }: Props) => {
     return (
-        <td className={`whitespace-nowrap px-3 py-4 text-sm text-gray-500`}>
+        <td className={`whitespace-nowrap ${props.paddingXAxis} py-4 ${props.fontSize} text-sm ${props.textColor}`}>
             {children}
         </td>
     );
 }
+
+TableCell.defaultProps = {
+    fontSize: null,
+    paddingXAxis: 'px-3', 
+    textColor: 'text-gray-500',
+    ClassName: null,
+  };
 
 export default TableCell;

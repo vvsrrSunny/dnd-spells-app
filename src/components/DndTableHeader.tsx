@@ -5,6 +5,7 @@ const DndTableHeader = () => {
         <>
             <TableHeaderCell>Index</TableHeaderCell>
             <TableHeaderCell>name</TableHeaderCell>
+            <TableHeaderCell>url</TableHeaderCell>
             <th scope="col" className="relative py-3 pl-3 pr-4 sm:pr-6">
                 <span className="sr-only">view</span>
             </th>

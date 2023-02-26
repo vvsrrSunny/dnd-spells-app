@@ -15,7 +15,7 @@ const Dnd = () => {
     useEffect(() => {
         setTimeout(() => {
             getDndData();
-          }, 5000);
+          }, 10);
     }, []);
 
     const dispatch = useAppDispatch();
@@ -28,7 +28,7 @@ const Dnd = () => {
     }
 
     return (<div>
-        <TableLayout header={<DndTableHeader />} body={<DndTableBody dndState={dndState} />} />
+        <TableLayout header={<DndTableHeader />} body={<DndTableBody dndState={dndState}/>} />
     </div>);
 };
 
