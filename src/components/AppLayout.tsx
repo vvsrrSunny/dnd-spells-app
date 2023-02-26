@@ -11,9 +11,6 @@ const user = {
 const navigation = [
     { name: "Dashboard", href: "#", current: true },
     { name: "Team", href: "#", current: false },
-    { name: "Projects", href: "#", current: false },
-    { name: "Calendar", href: "#", current: false },
-    { name: "Reports", href: "#", current: false },
 ];
 const userNavigation = [
     { name: "Your Profile", href: "#" },
@@ -53,13 +50,6 @@ export default function AppLayout({
                                     <div className="border-b border-gray-700">
                                         <div className="flex h-16 items-center justify-between px-4 sm:px-0">
                                             <div className="flex items-center">
-                                                <div className="flex-shrink-0">
-                                                    <img
-                                                        className="h-8 w-8"
-                                                        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                                                        alt="Your Company"
-                                                    />
-                                                </div>
                                                 <div className="hidden md:block">
                                                     <div className="ml-10 flex items-baseline space-x-4">
                                                         {navigation.map((item) => (
