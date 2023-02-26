@@ -9,13 +9,12 @@ import {
     selectDndState,
 } from './dndSlice';
 import DndTableBody from "../../components/DndTableBody";
+import AppLoader from "../../components/AppLoader";
 
 const Dnd = () => {
     // run as component did mount. 
     useEffect(() => {
-        setTimeout(() => {
-            getDndData();
-          }, 10);
+        getDndData();
     }, []);
 
     const dispatch = useAppDispatch();
@@ -28,7 +27,8 @@ const Dnd = () => {
     }
 
     return (<div>
-        <TableLayout header={<DndTableHeader />} body={<DndTableBody dndState={dndState}/>} />
+        <TableLayout header={<DndTableHeader />} body={<DndTableBody dndState={dndState} />} />
+        <AppLoader show={dndState.count === 0}/>
     </div>);
 };
 

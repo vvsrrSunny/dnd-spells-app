@@ -24,7 +24,7 @@ const TableCellEdit = (props: Props) => {
       {/* <a href={props.href} target={props.isUrl ? '_blank' : ''} className={`${props.isUrl ? 'text-indigo-600 hover:text-indigo-900' : 'inline-flex items-center rounded border border-transparent bg-indigo-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'}`}>
         {props.name}<span className="sr-only">dnd</span>
       </a> */}
-      <a href={props.href} target={props.isUrl ? '_blank' : ''} onClick={clickedNow} className={`${props.isUrl ? 'text-indigo-600 hover:text-indigo-900' : 'inline-flex items-center rounded border border-transparent bg-indigo-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'}`}>
+      <a href={props.href} target={props.isUrl ? '_blank' : ''} rel="noreferrer" onClick={clickedNow} className={`${props.isUrl ? 'text-indigo-600 hover:text-indigo-900' : 'inline-flex items-center rounded border border-transparent bg-indigo-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'}`}>
         {props.name}<span className="sr-only">dnd</span>
       </a>
     </td>
