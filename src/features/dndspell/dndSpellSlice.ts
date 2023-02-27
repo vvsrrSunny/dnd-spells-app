@@ -13,7 +13,6 @@ export interface DndSpellResult {
         size?: number
         type?: string
     }
-
     ritual?: boolean
     duration?: string
     concentration?: boolean
