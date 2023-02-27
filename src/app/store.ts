@@ -1,11 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import counterReducer from '../features/counter/counterSlice';
 import dndReducer from '../features/dnd/dndSlice';
+import dndSpellReducer from '../features/dndspell/dndSpellSlice';
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
     dnd: dndReducer,
+    dndSpell: dndSpellReducer,
   },
 });
 
