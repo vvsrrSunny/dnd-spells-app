@@ -3,7 +3,7 @@ import dndReducer, {
     setState,
 } from './dndSlice';
 
-describe('counter reducer', () => {
+describe('dnd reducer', () => {
     const initialState: DndState = {
         count: 0,
         results: [],
@@ -12,11 +12,11 @@ describe('counter reducer', () => {
     it('should handle initial state', () => {
         expect(dndReducer(undefined, { type: 'unknown' })).toEqual({
             count: 0,
-            result: [],
+            results: [],
         });
     });
 
-    it('should handle increment', () => {
+    it('should set dnd spell state', () => {
         const newResult = {
             count: 1,
             results: [
