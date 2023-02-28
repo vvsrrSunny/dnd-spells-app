@@ -35,7 +35,7 @@ const DndSpell = (props: Props) => {
     }
     return (<>
         <div className={dndSpellState.data.index === index ? 'show' : 'hidden'}>
-        <ShowDndSpellResult dndSpellResult={dndSpellState.data}/>
+            <ShowDndSpellResult dndSpellResult={dndSpellState.data} />
         </div>
         <AppLoader show={dndSpellState.data.index !== index} />
     </>
