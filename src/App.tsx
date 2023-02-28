@@ -12,8 +12,8 @@ function App() {
       <AppLayout>
         <Routes>
           <Route path="/" element={<Dnd />}></Route>
-          <Route path="/api/spells/:index" element={<DndSpell/>}> </Route>
-          <Route path="*" element={<PageNotFound/>}> </Route>
+          <Route path="/api/spells/:index" element={<DndSpell />}> </Route>
+          <Route path="*" element={<PageNotFound />}> </Route>
         </Routes>
       </AppLayout >
     </div >

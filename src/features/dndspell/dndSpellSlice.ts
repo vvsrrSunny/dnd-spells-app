@@ -57,9 +57,9 @@ export interface DndSpellState {
 
 const initialState: DndSpellState = {
     "data": {
-        "index": "acid-arrow",
-        "name": "Acid Arrow",
-        "url": "/api/spells/acid-arrow"
+        "index": "index val",
+        "name": "name val",
+        "url": "url"
     }
 };
 

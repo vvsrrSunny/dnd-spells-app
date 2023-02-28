@@ -5,6 +5,7 @@ import { DndSpellResult, selectDndSpellState, setState } from "./dndSpellSlice";
 import axios, { AxiosResponse } from "axios";
 import AppLoader from "../../components/AppLoader";
 import DndSpellStringKeyValues from "../../components/DndSpellStringKeyValues";
+import ShowDndSpellResult from "../../components/ShowDndSpellResult";
 interface Props {
     children?: ReactNode,
 }
@@ -34,14 +35,7 @@ const DndSpell = (props: Props) => {
     }
     return (<>
         <div className={dndSpellState.data.index === index ? 'show' : 'hidden'}>
-            <div className="grid  grid-cols-1  md:grid-cols-2 divide-x gap-4 md:gap-6">
-                <DndSpellStringKeyValues dndSpellResult={dndSpellState.data} />
-                <div>
-                    {Object.keys(dndSpellState.data).map((key: string, index: any) => (
-                        <p key={key}>{key}</p>
-                    ))}
-                </div>
-            </div>
+        <ShowDndSpellResult dndSpellResult={dndSpellState.data}/>
         </div>
         <AppLoader show={dndSpellState.data.index !== index} />
     </>
