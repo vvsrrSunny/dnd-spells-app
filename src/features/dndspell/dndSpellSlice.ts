@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
 
 export interface DndSpellResult {
     index: string
@@ -74,6 +75,8 @@ export const dndSpellSlice = createSlice({
     },
 });
 
+// provide a way to access the store using app selector.
+export const selectDndSpellState = (state: RootState) => state.dndSpell;
 
 export const { setState } = dndSpellSlice.actions;
 
