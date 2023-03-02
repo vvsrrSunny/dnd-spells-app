@@ -6,7 +6,7 @@ interface Props {
 
 const DisplayResultLayout = ({ children }: Props) => {
     return (
-        <div className="overflow-hidden sm:rounded-md bg-gray-50 shadow">
+        <div className="overflow-hidden rounded-md bg-gray-50 shadow">
             {children}
         </div>
     );

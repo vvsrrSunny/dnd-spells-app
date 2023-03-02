@@ -1,6 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
+export interface ClassList {
+    index: string
+    name: string
+    url?: string
+};
+
+export interface School {
+    index: string
+    name: string
+    url?: string
+}
 export interface DndSpellResult {
     index: string
     name: string
@@ -34,21 +45,9 @@ export interface DndSpellResult {
         }
 
     }
-    school?: {
-        index: string
-        name: string
-        url?: string
-    }
-    classes?: {
-        index: string
-        name: string
-        url?: string
-    }[]
-    subclasses?: Array<{
-        index: string
-        name: string
-        url?: string
-    }>
+    school?: School
+    classes?: ClassList[]
+    subclasses?: Array<ClassList>
 }
 
 export interface DndSpellState {

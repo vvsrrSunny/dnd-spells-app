@@ -2,6 +2,9 @@
 import { ReactNode } from "react";
 import { DndSpellResult } from "../features/dndspell/dndSpellSlice";
 import DisplayResultLayout from "./DisplayResultLayout";
+import Label from "./Label";
+import ResultHeaderLayout from "./ResultHeaderLayout";
+import Value from "./Value";
 
 interface Props {
     children?: ReactNode,
@@ -11,19 +14,21 @@ interface Props {
 const DndSpellStringKeyValues = (props: Props) => {
     const asArray = Object.entries(props.dndSpellResult);
     const filteredStringKeyValues = asArray.filter(([key, value]) => typeof value !== 'object');
-
+    const titleCase = (s: string) =>
+        s.replace(/^[-_]*(.)/, (_, c) => c.toUpperCase())       // Initial char (after -/_)
+            .replace(/[-_]+(.)/g, (_, c) => ' ' + c.toUpperCase()) // First char after each -/_
     return (
         <DisplayResultLayout>
-            <div role="list" className="divide-y divide-gray-200">
+            <ResultHeaderLayout header="Basic Info">
                 {filteredStringKeyValues.map(([key, value]) => (
                     <div key={key} className="flex flex-row">
-                        <div className="w-1/2 sm:w-1/4 whitespace-normal py-4 px-3 text-sm font-medium text-gray-900">
-                            {key} :
-                        </div>
-                        <div className="w-1/2 sm:w-3/4 whitespace-normal py-4 px-3 text-sm text-gray-600">{String(value)}</div>
+                        <Label>
+                            {titleCase(key)} :
+                        </Label>
+                        <Value>{String(value)}</Value>
                     </div>
                 ))}
-            </div>
+            </ResultHeaderLayout>
         </DisplayResultLayout>
     );
 }

@@ -12,8 +12,6 @@ interface Props {
 export default function ShowDescLevelsComponents(props: Props) {
     const [open, setOpen] = useState(1);
 
-    const desc = 'desc' as keyof Props;
-
     const handleOpen = (value: number): void => {
         setOpen(open === value ? 0 : value);
     };
@@ -30,7 +28,7 @@ export default function ShowDescLevelsComponents(props: Props) {
         return true;
     };
 
-    return (<div className="py-5">
+    return (
         <DisplayResultLayout>
             <div className="px-3">
                 <Fragment>
@@ -52,6 +50,5 @@ export default function ShowDescLevelsComponents(props: Props) {
                 </Fragment>
             </div>
         </DisplayResultLayout>
-    </div>
     );
 }

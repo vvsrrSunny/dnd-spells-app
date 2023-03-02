@@ -8,8 +8,8 @@ const ListStringArray = ({ children, ...props }: Props) => {
     return (
         <div className="flex justify-center">
             <ul className="w-full">
-                {props.stringArray?.map((value: string) => (
-                    <li
+                {props.stringArray?.map((value: string, index: number) => (
+                    <li key={index}
                         className="w-full border-b-2 border-neutral-100 border-opacity-100 py-4 dark:border-opacity-50 text-gray-600">
                         {value}
                     </li>
