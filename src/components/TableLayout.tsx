@@ -6,10 +6,11 @@ interface Props {
     body?: ReactNode,
     isRoundedOnTop: Boolean,
     maxHeight: string,
+    isMainTable: Boolean
 }
 export default function TableLayout(props: Props) {
     return (<div className="flex flex-col">
-        <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div className={`-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8 ${props.isMainTable ? '-mx-4' : ''}`}>
             <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
                 <div className={`overflow-hidden shadow ring-1 ring-black ring-opacity-5 ${props.isRoundedOnTop ? 'md:rounded-lg' : 'md:rounded-b-lg'}`}>
                     <div className={`overflow-y-auto ${props.maxHeight}`}>
@@ -34,4 +35,5 @@ export default function TableLayout(props: Props) {
 TableLayout.defaultProps = {
     isRoundedOnTop: true,
     maxHeight: 'h-full',
+    isMainTable: true,
 };

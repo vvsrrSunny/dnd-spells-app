@@ -12,6 +12,29 @@ export interface School {
     name: string
     url?: string
 }
+
+export interface Damage {
+    damage_type?: DamageType,
+    damage_at_character_level?: DamageChildLevel,
+    damage_at_slot_level?: DamageChildLevel,
+}
+
+export interface DamageType {
+    index: string
+    name: string
+    url: string
+}
+
+export interface DamageChildLevel {
+    [key: string]: string;
+}
+
+export enum AttackType {
+    V = 'verbal',
+    S = 'somatic',
+    M = 'material',
+  }
+
 export interface DndSpellResult {
     index: string
     name: string
@@ -19,7 +42,7 @@ export interface DndSpellResult {
     desc?: string[]
     higher_level?: string[]
     range?: string
-    components?: string[]
+    components?: AttackType[]
     material?: string
     area_of_effect?: {
         size?: number
@@ -31,20 +54,7 @@ export interface DndSpellResult {
     casting_time?: string
     level?: number
     attack_type?: string
-    damage?: {
-        damage_type?: {
-            index: string
-            name: string
-            url: string
-        }
-        damage_at_character_level?: {
-            [key: string]: any;
-        }
-        damage_at_slot_level?: {
-            [key: string]: any;
-        }
-
-    }
+    damage?: Damage
     school?: School
     classes?: ClassList[]
     subclasses?: Array<ClassList>

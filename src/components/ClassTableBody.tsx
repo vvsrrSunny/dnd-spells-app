@@ -2,7 +2,6 @@
 import { ReactNode } from 'react';
 import { ClassList } from '../features/dndspell/dndSpellSlice';
 import TableCell from './TableCell';
-import TableCellEdit from './TableCellEdit';
 import TableCellUrl from './TableCellUrl';
 
 interface Props {

@@ -1,9 +1,8 @@
 import { ReactNode } from "react";
 import { School } from "../features/dndspell/dndSpellSlice";
 import DisplayResultLayout from "./DisplayResultLayout";
-import Label from "./Label";
+import LabelAndValue from "./LabelAndValue";
 import ResultHeaderLayout from "./ResultHeaderLayout";
-import Value from "./Value";
 
 interface Props {
     children?: ReactNode,
@@ -25,28 +24,13 @@ const ShowSchool = (props: Props) => {
             <DisplayResultLayout>
                 <ResultHeaderLayout header="School">
                     {shouldRenderIndex(props.school?.index) && (
-                        <div className="flex flex-row">
-                            <Label>
-                                Index :
-                            </Label>
-                            <Value>{String(props.school?.index)}</Value>
-                        </div>
+                        <LabelAndValue  label="Index" value={props.school?.index} />
                     )}
                     {shouldRenderIndex(props.school?.name) && (
-                        <div className="flex flex-row">
-                            <Label>
-                                Name :
-                            </Label>
-                            <Value>{props.school?.name}</Value>
-                        </div>
+                        <LabelAndValue label="Name" value={props.school?.name} />
                     )}
                     {shouldRenderIndex(props.school?.url) && (
-                        <div className="flex flex-row">
-                            <Label>
-                                Url :
-                            </Label>
-                            <Value>{props.school?.url}</Value>
-                        </div>
+                        <LabelAndValue label="Url" value={props.school?.url} />
                     )}
                 </ResultHeaderLayout>
             </DisplayResultLayout>

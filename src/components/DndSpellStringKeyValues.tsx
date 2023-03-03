@@ -2,9 +2,8 @@
 import { ReactNode } from "react";
 import { DndSpellResult } from "../features/dndspell/dndSpellSlice";
 import DisplayResultLayout from "./DisplayResultLayout";
-import Label from "./Label";
+import LabelAndValue from "./LabelAndValue";
 import ResultHeaderLayout from "./ResultHeaderLayout";
-import Value from "./Value";
 
 interface Props {
     children?: ReactNode,
@@ -21,12 +20,7 @@ const DndSpellStringKeyValues = (props: Props) => {
         <DisplayResultLayout>
             <ResultHeaderLayout header="Basic Info">
                 {filteredStringKeyValues.map(([key, value]) => (
-                    <div key={key} className="flex flex-row">
-                        <Label>
-                            {titleCase(key)} :
-                        </Label>
-                        <Value>{String(value)}</Value>
-                    </div>
+                    <LabelAndValue key={key} label={titleCase(key)} value={value} />
                 ))}
             </ResultHeaderLayout>
         </DisplayResultLayout>

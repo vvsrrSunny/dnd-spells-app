@@ -4,6 +4,7 @@ import { DndSpellResult } from "../features/dndspell/dndSpellSlice";
 import DndSpellStringKeyValues from "./DndSpellStringKeyValues";
 import ShowAreaOfEffect from "./ShowAreaOfEffect";
 import ShowClassDetails from "./ShowClassDetails";
+import ShowDamageDetails from "./ShowDamageDetails";
 import ShowDescLevelsComponents from "./ShowDescLevelsComponents";
 import ShowSchool from "./ShowSchool";
 
@@ -25,9 +26,7 @@ const ShowDndSpellResult = ({ children, ...props }: Props) => {
                 <ShowSchool school={props.dndSpellResult.school}></ShowSchool>
                 <ShowClassDetails name="Classes table"classList={props.dndSpellResult.classes}></ShowClassDetails>
                 <ShowClassDetails name="Sub Classes table" classList={props.dndSpellResult.subclasses}></ShowClassDetails>
-                {/* {Object.keys(props.dndSpellResult).map((key: string, index: any) => (
-                    <p key={key}>{key}</p>
-                ))} */}
+                <ShowDamageDetails damage={props.dndSpellResult.damage}></ShowDamageDetails>
                 </div>
             </div>
         </div>
