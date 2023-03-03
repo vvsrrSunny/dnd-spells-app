@@ -44,7 +44,7 @@ export default function ShowDescLevelsComponents(props: Props) {
                     )}
                     {shouldRenderIndex(props.components) && (
                         <SetAccordion open={open} accordionNumber={4} accordionClick={handleOpen} header={"Components"}>
-                            <ListStringArray stringArray={props.components} />
+                            <ListStringArray isAttackTypeEnum = {true} stringArray={props.components} />
                         </SetAccordion>
                     )}
                 </Fragment>

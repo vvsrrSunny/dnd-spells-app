@@ -33,7 +33,7 @@ export enum AttackType {
     V = 'verbal',
     S = 'somatic',
     M = 'material',
-  }
+}
 
 export interface DndSpellResult {
     index: string
@@ -42,7 +42,7 @@ export interface DndSpellResult {
     desc?: string[]
     higher_level?: string[]
     range?: string
-    components?: AttackType[]
+    components?: string[]
     material?: string
     area_of_effect?: {
         size?: number
