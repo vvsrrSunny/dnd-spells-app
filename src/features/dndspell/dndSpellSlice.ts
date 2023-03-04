@@ -1,4 +1,58 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RootState } from '../../app/store';
+
+export interface ClassList {
+    index: string
+    name: string
+    url?: string
+};
+
+export interface School {
+    index: string
+    name: string
+    url?: string
+}
+
+export interface Damage {
+    damage_type?: DamageType,
+    damage_at_character_level?: DamageChildLevel,
+    damage_at_slot_level?: DamageChildLevel,
+}
+
+export interface DamageType {
+    index: string
+    name: string
+    url: string
+}
+
+export interface DamageChildLevel {
+    [key: string]: string;
+}
+
+export type AttackTypeResult = [
+    AttackType.V?,
+    AttackType.S?,
+    AttackType.M?,
+]
+
+export enum AttackType {
+    V = 'verbal',
+    S = 'somatic',
+    M = 'material',
+}
+
+export enum AreaOfEffect {
+    sphere,
+    cone,
+    cylinder,
+    line,
+    cube,
+}
+
+export interface AreaOfEffectResult {
+    size?: number
+    type?: AreaOfEffect
+}
 
 export interface DndSpellResult {
     index: string
@@ -7,47 +61,19 @@ export interface DndSpellResult {
     desc?: string[]
     higher_level?: string[]
     range?: string
-    components?: string[]
+    components?: AttackTypeResult
     material?: string
-    area_of_effect?: {
-        size?: number
-        type?: string
-    }
+    area_of_effect?: AreaOfEffectResult
     ritual?: boolean
     duration?: string
     concentration?: boolean
     casting_time?: string
     level?: number
     attack_type?: string
-    damage?: {
-        damage_type?: {
-            index: string
-            name: string
-            url: string
-        }
-        damage_at_character_level?: {
-            [key: string]: any;
-        }
-        damage_at_slot_level?: {
-            [key: string]: any;
-        }
-
-    }
-    school?: {
-        index: string
-        name: string
-        url?: string
-    }
-    classes?: {
-        index: string
-        name: string
-        url?: string
-    }[]
-    subclasses?: Array<{
-        index: string
-        name: string
-        url?: string
-    }>
+    damage?: Damage
+    school?: School
+    classes?: ClassList[]
+    subclasses?: Array<ClassList>
 }
 
 export interface DndSpellState {
@@ -56,9 +82,9 @@ export interface DndSpellState {
 
 const initialState: DndSpellState = {
     "data": {
-        "index": "acid-arrow",
-        "name": "Acid Arrow",
-        "url": "/api/spells/acid-arrow"
+        "index": "index val",
+        "name": "name val",
+        "url": "url"
     }
 };
 
@@ -74,6 +100,8 @@ export const dndSpellSlice = createSlice({
     },
 });
 
+// provide a way to access the store using app selector.
+export const selectDndSpellState = (state: RootState) => state.dndSpell;
 
 export const { setState } = dndSpellSlice.actions;
 

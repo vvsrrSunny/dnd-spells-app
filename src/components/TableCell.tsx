@@ -19,7 +19,7 @@ const TableCell = ({ children, ...props }: Props) => {
 TableCell.defaultProps = {
     fontSize: null,
     paddingXAxis: 'px-3', 
-    textColor: 'text-gray-500',
+    textColor: 'text-gray-600',
     ClassName: null,
   };
 

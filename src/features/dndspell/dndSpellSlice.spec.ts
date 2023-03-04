@@ -18,9 +18,9 @@ describe('dnd spell reducer', () => {
     it('should handle initial state', () => {
         expect(dndSpellReducer(undefined, { type: 'unknown' })).toEqual({
             "data": {
-                "index": "acid-arrow",
-                "name": "Acid Arrow",
-                "url": "/api/spells/acid-arrow"
+                "index": "index val",
+                "name": "name val",
+                "url": "url"
             }
         });
     });
