@@ -2,12 +2,14 @@ import { Fragment, ReactNode, useState } from "react";
 import SetAccordion from "./SetAccordion";
 import DisplayResultLayout from "./DisplayResultLayout";
 import ListStringArray from "./ListStringArray";
+import { AttackTypeResult } from "../features/dndspell/dndSpellSlice";
+
 
 interface Props {
     children?: ReactNode;
     desc: string[] | undefined;
     higher_level: string[] | undefined;
-    components: string[] | undefined;
+    components:  AttackTypeResult | undefined;
 }
 export default function ShowDescLevelsComponents(props: Props) {
     const [open, setOpen] = useState(1);
@@ -16,7 +18,7 @@ export default function ShowDescLevelsComponents(props: Props) {
         setOpen(open === value ? 0 : value);
     };
 
-    const shouldRenderIndex = (value: string[] | undefined): boolean => {
+    const shouldRenderIndex = (value: string[] | AttackTypeResult | undefined): boolean => {
         if (value === undefined) {
             return false;
         }

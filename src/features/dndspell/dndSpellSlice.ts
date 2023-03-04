@@ -29,10 +29,29 @@ export interface DamageChildLevel {
     [key: string]: string;
 }
 
+export type AttackTypeResult = [
+    AttackType.V?,
+    AttackType.S?,
+    AttackType.M?,
+]
+
 export enum AttackType {
     V = 'verbal',
     S = 'somatic',
     M = 'material',
+}
+
+export enum AreaOfEffect {
+    sphere,
+    cone,
+    cylinder,
+    line,
+    cube,
+}
+
+export interface AreaOfEffectResult {
+    size?: number
+    type?: AreaOfEffect
 }
 
 export interface DndSpellResult {
@@ -42,12 +61,9 @@ export interface DndSpellResult {
     desc?: string[]
     higher_level?: string[]
     range?: string
-    components?: string[]
+    components?: AttackTypeResult
     material?: string
-    area_of_effect?: {
-        size?: number
-        type?: string
-    }
+    area_of_effect?: AreaOfEffectResult
     ritual?: boolean
     duration?: string
     concentration?: boolean

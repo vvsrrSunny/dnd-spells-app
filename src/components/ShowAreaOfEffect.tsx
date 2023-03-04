@@ -1,18 +1,14 @@
 
 import { ReactNode } from "react";
+import { AreaOfEffectResult } from "../features/dndspell/dndSpellSlice";
 import DisplayResultLayout from "./DisplayResultLayout";
 import Label from "./Label";
 import ResultHeaderLayout from "./ResultHeaderLayout";
 import Value from "./Value";
 
-interface AreaOfEffect {
-    size?: number
-    type?: string
-}
-
 interface Props {
     children?: ReactNode,
-    areaOfEffect: AreaOfEffect | undefined
+    areaOfEffect: AreaOfEffectResult | undefined
 }
 
 const ShowAreaOfEffect = (props: Props) => {
