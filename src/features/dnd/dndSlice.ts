@@ -1,8 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
-export interface DndResult {
+export interface DndResultIndex {
     index: string;
+}
+
+export interface DndResult extends DndResultIndex{
     name: string;
     url: string;
 }
