@@ -28,6 +28,8 @@ const DndSpell = (props: Props) => {
     const dndSpellState = useAppSelector(selectDndSpellState);
 
     const getDndSpellData = (): void => {
+        setIsFavourite(isFavouriteDndSpell(index))
+        
         // already we have the current result in the store. 
         if (dndSpellState.data.index === index) {
             return;
@@ -37,8 +39,6 @@ const DndSpell = (props: Props) => {
             const dndSpellResult: DndSpellResult = response.data;
 
             dispatch(setState(dndSpellResult));
-
-            setIsFavourite(isFavouriteDndSpell(index))
         });
     }
 
