@@ -4,11 +4,16 @@ import { Dialog, Transition } from '@headlessui/react'
 interface Props {
     children?: ReactNode,
     promptOpen: Boolean,
+    title: string,
+    acceptButtonTitle: string,
+    body?: string,
+    acceptButtonColor: string,
     promptOpenedCallback: () => void
+    promptClosedCallback: () => void
     onClickAccept: () => void
 }
 
-export default function ThePrompt(props: Props) {
+const ThePrompt = (props: Props) => {
     const [open, setOpen] = useState(false)
 
     const cancelButtonRef = useRef(null)
@@ -18,6 +23,10 @@ export default function ThePrompt(props: Props) {
             setOpen(true);
 
             props.promptOpenedCallback();
+        }
+
+        return () => {
+            props.promptClosedCallback();
         }
     });
 
@@ -56,11 +65,11 @@ export default function ThePrompt(props: Props) {
                                 <div className="sm:flex sm:items-start">
                                     <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                         <Dialog.Title as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                                            Add to favourites
+                                            {props.title}
                                         </Dialog.Title>
                                         <div className="mt-2">
                                             <p className="text-sm text-gray-500">
-                                                Are you sure you want to add to favourites ?
+                                                {props.body}
                                             </p>
                                         </div>
                                     </div>
@@ -68,10 +77,10 @@ export default function ThePrompt(props: Props) {
                                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                                     <button
                                         type="button"
-                                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 sm:ml-3 sm:w-auto"
+                                        className={`inline-flex w-full justify-center rounded-md bg-${props.acceptButtonColor}-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-${props.acceptButtonColor}-500 sm:ml-3 sm:w-auto`}
                                         onClick={onClickAccept}
                                     >
-                                        Add to favourites
+                                        {props.acceptButtonTitle}
                                     </button>
                                     <button
                                         type="button"
@@ -90,3 +99,9 @@ export default function ThePrompt(props: Props) {
         </Transition.Root>
     )
 }
+
+ThePrompt.defaultProps = {
+    acceptButtonColor: 'indigo',
+  };
+
+  export default ThePrompt;

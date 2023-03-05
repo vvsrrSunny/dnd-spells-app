@@ -5,7 +5,7 @@ import { DndSpellResult, selectDndSpellState, setState } from "./dndSpellSlice";
 import axios, { AxiosResponse } from "axios";
 import AppLoader from "../../components/AppLoader";
 import ShowDndSpellResult from "../../components/ShowDndSpellResult";
-import { addState, selectDndFavouriteState } from "../dnd-favourite/dndFavouriteSlice";
+import { addState, removeState, selectDndFavouriteState } from "../dnd-favourite/dndFavouriteSlice";
 interface Props {
     children?: ReactNode,
 }
@@ -38,19 +38,30 @@ const DndSpell = (props: Props) => {
 
             dispatch(setState(dndSpellResult));
 
-            setIsFavourite(isFavouriteDndSpell())
+            setIsFavourite(isFavouriteDndSpell(index))
         });
     }
 
-    const isFavouriteDndSpell = () => {
-        if (dndFavList.results.includes(dndSpellState.data.index)) {
-            return true;
+    const isFavouriteDndSpell = (index: string | undefined) => {
+        if (typeof index !== 'undefined') {
+            if (dndFavList.results.includes(index)) {
+                return true;
+            }
         }
 
         return false;
     }
 
     const onClickFavouriteButton = () => {
+        // if its already a favourite then we remove from favourite 
+        if (isFavourite) {
+            dispatch(removeState(dndSpellState.data.index));
+
+            setIsFavourite(false);
+
+            return;
+        }
+
         // add current index to the favourites
         dispatch(addState(dndSpellState.data.index));
 
