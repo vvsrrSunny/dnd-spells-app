@@ -10,7 +10,7 @@ const DndTableHeader = (props:Props) => {
             <TableHeaderCell>Index</TableHeaderCell>
             <TableHeaderCell>name</TableHeaderCell>
             <TableHeaderCell>url</TableHeaderCell>
-            <TableHeaderCell>My Favourite</TableHeaderCell>
+            <TableHeaderCell classNames='flex justify-center items-center'>My Favourite</TableHeaderCell>
             <th scope="col" className={`relative py-3 pl-3 pr-4 sm:pr-6 ${props.showViewButton ? 'block' : 'hidden'}`}>
                 <span className="sr-only">view</span>
             </th>

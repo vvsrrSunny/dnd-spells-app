@@ -6,6 +6,7 @@ import axios, { AxiosResponse } from "axios";
 import AppLoader from "../../components/AppLoader";
 import ShowDndSpellResult from "../../components/ShowDndSpellResult";
 import { addState, removeState, selectDndFavouriteState } from "../dnd-favourite/dndFavouriteSlice";
+import Notifications from "../../components/Notifications";
 interface Props {
     children?: ReactNode,
 }
@@ -22,6 +23,8 @@ const DndSpell = (props: Props) => {
 
     const [isFavourite, setIsFavourite] = useState(false)
 
+    const [notificationOpen, setNotificationOpen] = useState(false)
+
     const dndFavList = useAppSelector(selectDndFavouriteState);
 
     // get the dnd spell store
@@ -29,8 +32,8 @@ const DndSpell = (props: Props) => {
 
     const getDndSpellData = (): void => {
         setIsFavourite(isFavouriteDndSpell(index))
-        
-        // already we have the current result in the store. 
+
+        // already we have the current result in the store.
         if (dndSpellState.data.index === index) {
             return;
         }
@@ -53,6 +56,8 @@ const DndSpell = (props: Props) => {
     }
 
     const onClickFavouriteButton = () => {
+        setNotificationOpen(true);
+
         // if its already a favourite then we remove from favourite 
         if (isFavourite) {
             dispatch(removeState(dndSpellState.data.index));
@@ -73,9 +78,10 @@ const DndSpell = (props: Props) => {
             <ShowDndSpellResult onClickFavouriteButton={onClickFavouriteButton} dndSpellResult={dndSpellState.data} isFavourite={isFavourite} />
         </div>
         <AppLoader show={dndSpellState.data.index !== index} />
+
+        <Notifications notificationOpen={notificationOpen} notificationOpenedCallback={() => setNotificationOpen(false)} />
     </>
     );
 }
-
 
 export default DndSpell;

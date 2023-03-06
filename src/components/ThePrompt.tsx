@@ -77,7 +77,7 @@ const ThePrompt = (props: Props) => {
                                 <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
                                     <button
                                         type="button"
-                                        className={`inline-flex w-full justify-center rounded-md bg-${props.acceptButtonColor}-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-${props.acceptButtonColor}-500 sm:ml-3 sm:w-auto`}
+                                        className={`inline-flex w-full justify-center rounded-md ${props.acceptButtonColor==='indigo' ? 'bg-indigo-600 hover:bg-indigo-500' : 'bg-red-600 hover:bg-red-500'} px-3 py-2 text-sm font-semibold text-white shadow-sm sm:ml-3 sm:w-auto`}
                                         onClick={onClickAccept}
                                     >
                                         {props.acceptButtonTitle}

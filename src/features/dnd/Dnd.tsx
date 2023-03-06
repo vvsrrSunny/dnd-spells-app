@@ -7,10 +7,12 @@ import {
     DndState,
     setState,
     selectDndState,
+    DndResult,
 } from './dndSlice';
 import DndTableBody from "../../components/DndTableBody";
 import AppLoader from "../../components/AppLoader";
 import { selectDndFavouriteState } from "../dnd-favourite/dndFavouriteSlice";
+import TheCheckBox from "../../components/TheCheckBox";
 
 const Dnd = () => {
     // run as component did mount. 
@@ -23,7 +25,7 @@ const Dnd = () => {
     const dndState = useAppSelector(selectDndState);
 
     const dndFavList = useAppSelector(selectDndFavouriteState);
-    
+
     const getDndData = (): void => {
         axios.get<DndState>("https://www.dnd5eapi.co/api/spells").then((response: AxiosResponse<DndState>) => {
             const dndState: DndState = response.data;
@@ -31,9 +33,25 @@ const Dnd = () => {
         });
     }
 
+    const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.checked) {
+
+            const myFavSpells: Array<DndResult> = dndState.results.filter((spell) => dndFavList.results.includes(spell.index));
+
+            dispatch(setState({ count: myFavSpells.length, results: myFavSpells }));
+
+            return;
+        }
+
+        dispatch(setState({ count: 0, results: [] }));
+
+        getDndData();
+    }
+
     return (<div>
-        <TableLayout header={<DndTableHeader />} body={<DndTableBody dndState={dndState} dndFavList = {dndFavList}/>} />
-        <AppLoader show={dndState.count === 0}/>
+        <TheCheckBox shouldDisabled={!!(dndState.count && dndFavList.count)} handleCheckboxChange={handleCheckboxChange} />
+        <TableLayout header={<DndTableHeader />} body={<DndTableBody dndState={dndState} dndFavList={dndFavList} />} />
+        <AppLoader show={dndState.count === 0} />
     </div>);
 };
 
