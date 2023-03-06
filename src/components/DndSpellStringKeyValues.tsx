@@ -18,7 +18,7 @@ const DndSpellStringKeyValues = (props: Props) => {
             .replace(/[-_]+(.)/g, (_, c) => ' ' + c.toUpperCase()) // First char after each -/_
     return (
         <DisplayResultLayout>
-            <ResultHeaderLayout header="Basic Info">
+            <ResultHeaderLayout header="Basic Information">
                 {filteredStringKeyValues.map(([key, value]) => (
                     <LabelAndValue key={key} label={titleCase(key)} value={value} />
                 ))}

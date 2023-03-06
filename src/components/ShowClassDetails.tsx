@@ -17,7 +17,7 @@ const ShowClassDetails = (props: Props) => {
         return (
             <DisplayResultLayout>
                 <ResultHeaderLayout header={props.name}>
-                    <TableLayout maxHeight="max-h-64" isMainTable={false} isRoundedOnTop={false} header={<DndTableHeader showViewButton={false} />} body={<ClassTableBody classList={props.classList} />} />
+                    <TableLayout maxHeight="max-h-64" isMainTable={false} isRoundedOnTop={false} header={<DndTableHeader classesTableHeader={true} />} body={<ClassTableBody classList={props.classList} />} />
                 </ResultHeaderLayout>
             </DisplayResultLayout>
         );
