@@ -13,6 +13,7 @@ Project is created with:
 * "react-redux": "^8.0.5"
 * "react-router-dom": "^6.8.1"
 * "typescript": "^4.9.5"
+* "tailwindcss": "^3.2.7"
 	
 ## Setup
 ```
