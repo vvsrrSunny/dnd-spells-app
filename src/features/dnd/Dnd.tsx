@@ -26,11 +26,21 @@ const Dnd = () => {
 
     const dndFavList = useAppSelector(selectDndFavouriteState);
 
-    const getDndData = (): void => {
-        axios.get<DndState>("https://www.dnd5eapi.co/api/spells").then((response: AxiosResponse<DndState>) => {
+    const getDndData = async () => {
+        // axios.get<DndState>("https://www.dnd5eapi.co/api/spells").then((response: AxiosResponse<DndState>) => {
+        //     const dndState: DndState = response.data;
+        //     dispatch(setState(dndState));
+        // }).catch((error) => {
+        //     console.log(error);
+        // });
+        try {
+            const response: AxiosResponse<DndState> = await axios.get<DndState>("https://www.dnd5eapi.co/api/spells");
             const dndState: DndState = response.data;
             dispatch(setState(dndState));
-        });
+        }
+        catch (error) {
+            console.log(error);
+        }
     }
 
     const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
