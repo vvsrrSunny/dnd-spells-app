@@ -14,6 +14,6 @@ updates:
     reviewers:
      - "vvsrrSunny"
     ignore:
-      # ignore all GitHub linguist patch updates
+      # ignore all major updates updates
       - dependency-name: "*"
         update-types: ["version-update:semver-major"]
