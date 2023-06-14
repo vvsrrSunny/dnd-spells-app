@@ -6,7 +6,7 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-      time: "11:37" # hh:mm formate
+      time: "11:40" # hh:mm formate
       timezone: "Australia/Perth"
     open-pull-requests-limit: 1
     milestone: 2
