@@ -17,7 +17,9 @@ interface Props {
 const SetAccordion = ({ children, ...props }: Props) => {
     return (
         <>
+            {/* @ts-ignore */}
             <Accordion open={props.open === props.accordionNumber} className="text-sm font-normal">
+                {/* @ts-ignore */}
                 <AccordionHeader className="text-sm" onClick={() => props.accordionClick(props.accordionNumber)}>
                     {props.header}
                 </AccordionHeader>
